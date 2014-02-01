@@ -8,10 +8,13 @@ feature 'Find the favourite language of the Geek on GitHub', %q{
 } do
 
   scenario "Viewing the form" do
-    pending
+    visit "/"
+    page.should have_selector("input", type: "text", name: "username") 
+    page.should have_selector("label", text: "Geek's GitHub username, please") 
+    page.should have_button "Find favourite programming language of that geek"
   end
 
-  scenario "Submitting geek's GitHub user name" do
+  scenario "Submitting geek's GitHub username" do
     pending
   end
 

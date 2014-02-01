@@ -1,4 +1,7 @@
 FavGithub::Application.routes.draw do
+  root :to => 'fav#new'
+  match 'fav/:username' => 'fav#show'
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

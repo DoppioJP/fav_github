@@ -1,0 +1,5 @@
+<%= form_tag controller: "fav", action: "show", username: "" do %>
+  <%= label_tag :username, "Geek's GitHub username, please" %>
+  <%= text_field_tag :username %>
+  <%= submit_tag "Find favourite programming language of that geek" %>
+<% end %>
