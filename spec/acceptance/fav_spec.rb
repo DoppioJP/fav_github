@@ -15,7 +15,10 @@ feature 'Find the favourite language of the Geek on GitHub', %q{
   end
 
   scenario "Submitting geek's GitHub username" do
-    pending
+    visit "/"
+    fill_in :username, with: "h-lame"
+    click_button "Find favourite programming language of that geek"
+    
   end
 
   scenario "Viewing the favourite programming language" do

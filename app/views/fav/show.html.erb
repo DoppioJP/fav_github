@@ -1,0 +1,4 @@
+<%= @username %>
+<% @user.languages.each do |language| %>
+<p><%= language[:lang] %>: <%= language[:count] %></p>
+<% end %>

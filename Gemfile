@@ -22,6 +22,8 @@ end
 
 gem 'jquery-rails'
 
+gem 'github_api'
+
 group :test, :development do
   gem 'rspec-rails'
   gem 'guard-rspec'
