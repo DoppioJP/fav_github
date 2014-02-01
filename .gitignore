@@ -17,3 +17,6 @@
 # Ignore .pow
 .powenv
 .powrc
+
+# Ignore rvm
+.rvmrc
