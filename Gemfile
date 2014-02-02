@@ -27,10 +27,11 @@ group :test, :development do
   gem 'guard-rspec'
   gem 'capybara'
   gem 'shoulda', :require => false
+  gem 'sqlite3'
 end
 
-group :development do
-  gem 'sqlite3'
+group :production do
+  gem 'pg'
 end
 
 # To use ActiveModel has_secure_password

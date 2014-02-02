@@ -14,5 +14,9 @@ describe User do
   end
   
   describe "languages" do
+    it 'counts the languages in repos from GitHub' do
+    end
+    it 'sorts desc the languages based on numbers of repos' do
+    end
   end
 end
