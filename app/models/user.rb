@@ -2,13 +2,7 @@ class User
   def initialize(username)
     @username = username
   end
-  
-  def on_github?
-    github = Github.new
-    github.user = @username
-    true
-  end
-  
+
   def languages
     github = Github.new
     begin
