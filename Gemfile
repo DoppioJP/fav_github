@@ -30,6 +30,11 @@ group :test, :development do
   gem 'sqlite3'
 end
 
+group :test do
+  gem 'webmock'
+  gem 'sinatra'
+end
+
 group :production do
   gem 'pg'
 end
