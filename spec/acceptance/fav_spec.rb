@@ -40,7 +40,7 @@ feature 'Find the favourite language of the Geek on GitHub', %q{
       page.should have_content "Ruby: 21"
     end
 
-    scenario "Viewing the favourit programming language should be nice" do
+    scenario "Viewing the favourite programming language should be nice" do
       page.should have_selector("h1", text: "user_on_github")
       page.should have_selector("ol li", text: "Ruby: 21")
     end
