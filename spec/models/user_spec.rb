@@ -7,26 +7,19 @@ describe User do
       username = "user_on_github"
       github = Github.new
       repos_list = github.repos.list user: username
-      repos_list = repos_list.find_all { |repo| repo.owner.login == username }
 
       expect(repos_list.first.owner.login).to eql "user_on_github"
     end
 
     it "gets repos list from GitHub" do
-      github = Github.new
-      repos_list = github.repos.list user: "user_on_github"
+      user = User.new("user_on_github")
 
-      expect(repos_list.first.language).to eql "Ruby"
+      expect(user.languages.first[:lang]).to eql "Ruby"
     end
 
     it 'returns empty array if there is nothing to return (no such user or any other problem)' do
-      username = "user_not_on_github"
-      github = Github.new
-      repos_list = github.repos.list user: username
-      expect(repos_list.first.owner.login).not_to eql username
-
-      repos_list = repos_list.find_all { |repo| repo.owner.login == username }
-      expect(repos_list).to eql []
+      user = User.new("user_not_on_github")
+      expect(user.languages).to eql []
     end
 
     it 'returns an Array' do

@@ -1,6 +1,10 @@
 <h1><%= @username %></h1>
-<ol>
-  <% @user.languages.each do |language| %>
-  <li><%= language[:lang] || "[unknown]" %>: <%= language[:count] %></li>
-  <% end %>
-</ol>
+<% if @user.languages.present? %>
+  <ol>
+    <% @user.languages.each do |language| %>
+    <li><%= language[:lang] || "[unknown]" %>: <%= language[:count] %></li>
+    <% end %>
+  </ol>
+<% else %>
+  <p>Well, that geek might not have any repos on GitHub, hence one's favourite language is unknown, you know?</p>
+<% end %>

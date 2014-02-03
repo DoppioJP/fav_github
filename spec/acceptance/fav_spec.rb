@@ -45,4 +45,14 @@ feature 'Find the favourite language of the Geek on GitHub', %q{
 
     page.should have_content "[unknown]"
   end
+  
+  scenario "When no result, explain why" do
+    visit "/"
+    fill_in :username, with: "user_not_on_github"
+    click_button "Find favourite programming language of that geek"
+    
+    page.should have_selector("h1", text: "user_not_on_github")
+    page.should_not have_selector("ol")
+    page.should have_content "Well, that geek might not have any repos on GitHub, hence one's favourite language is unknown, you know?"
+  end
 end
