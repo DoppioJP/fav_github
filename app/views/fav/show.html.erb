@@ -1,4 +1,6 @@
-<%= @username %>
-<% @user.languages.each do |language| %>
-<p><%= language[:lang] %>: <%= language[:count] %></p>
-<% end %>
+<h1><%= @username %></h1>
+<ol>
+  <% @user.languages.each do |language| %>
+  <li><%= language[:lang] || "[unknown]" %>: <%= language[:count] %></li>
+  <% end %>
+</ol>

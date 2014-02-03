@@ -16,12 +16,33 @@ feature 'Find the favourite language of the Geek on GitHub', %q{
 
   scenario "Submitting geek's GitHub username" do
     visit "/"
-    fill_in :username, with: "h-lame"
+    fill_in :username, with: "user_on_github"
     click_button "Find favourite programming language of that geek"
-    
+    current_path.should eql fav_path
+    current_url.should include("username=user_on_github")
   end
 
   scenario "Viewing the favourite programming language" do
-    pending
+    visit "/"
+    fill_in :username, with: "user_on_github"
+    click_button "Find favourite programming language of that geek"
+    page.should have_content "Ruby: 21"
+  end
+
+  scenario "Viewing the favourit programming language should be nice" do
+    visit "/"
+    fill_in :username, with: "user_on_github"
+    click_button "Find favourite programming language of that geek"
+
+    page.should have_selector("h1", text: "user_on_github")
+    page.should have_selector("ol li", text: "Ruby: 21")
+  end
+
+  scenario "When language is not specified, put the [unknown] instead" do
+    visit "/"
+    fill_in :username, with: "user_on_github"
+    click_button "Find favourite programming language of that geek"
+
+    page.should have_content "[unknown]"
   end
 end
