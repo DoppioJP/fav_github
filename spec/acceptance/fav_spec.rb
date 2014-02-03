@@ -7,11 +7,22 @@ feature 'Find the favourite language of the Geek on GitHub', %q{
   The favourite programming language of that geek.
 } do
 
-  scenario "Viewing the form" do
-    visit "/"
-    page.should have_selector("input", type: "text", name: "username") 
-    page.should have_selector("label", text: "Geek's GitHub username, please") 
-    page.should have_button "Find favourite programming language of that geek"
+  context "Viewing the form" do
+    background do
+      visit "/"
+    end
+    scenario "The form is there" do
+      page.should have_selector("input", type: "text", name: "username") 
+      page.should have_selector("label", text: "Geek's GitHub username, please") 
+      page.should have_button "Find favourite programming language of that geek"
+    end
+    
+    scenario "Few examples of GitHub users" do
+      page.should have_selector("h2", text: "i.e. look at those geeks` favourite languages:")
+      page.should have_link("DoppioJP", url: fav_path(username: "DoppioJP"))
+      page.should have_link("h-lame", url: fav_path(username: "h-lame"))
+      page.should have_link("PjpG", url: fav_path(username: "PjpG"))
+    end
   end
 
   context "That favourite programming language for existing GitHub user" do

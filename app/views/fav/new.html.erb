@@ -3,3 +3,10 @@
   <%= text_field_tag :username %>
   <%= submit_tag "Find favourite programming language of that geek" %>
 <% end %>
+
+<h2>i.e. look at those geeks` favourite languages:</h2>
+<ul>
+  <li><%= link_to "DoppioJP", fav_path(username: "DoppioJP") %></li>
+  <li><%= link_to "h-lame", fav_path(username: "h-lame") %></li>
+  <li><%= link_to "PjpG", fav_path(username: "PjpG") %></li>
+</ul>

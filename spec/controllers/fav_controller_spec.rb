@@ -24,7 +24,6 @@ describe FavController do
       @username = "geek_on_github"
       @username.stub(:on_github?).and_return(true)
       @username.on_github?.should eql true
-
     end
   end
   
